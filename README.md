@@ -1,6 +1,6 @@
 # Auto Vitrine API 🚗
 
-Esta API foi desenvolvida para gerenciar o inventário e a exibição de veículos de uma vitrine automotiva. O projeto foi inspirado nas funcionalidades e no catálogo de seminovos da [Comasa](https://www.comasa.com.br/seminovos), oferecendo uma estrutura robusta para listagem, filtragem e gestão de automóveis.
+Esta API foi desenvolvida para gerenciar o inventário e a exibição de veículos de uma vitrine automotiva. O projeto foi inspirado nas funcionalidades e no catálogo de seminovos da [Comasa](https://www.comasa.com.br/seminovos).
 
 ---
 
@@ -23,8 +23,7 @@ As principais tecnologias e bibliotecas utilizadas no projeto são:
 ## 🚀 Como Instalar e Executar
 
 ### 1. Pré-requisitos
-* Node.js (versão 18 ou superior recomendada).
-* Gerenciador de pacotes NPM (que já vem com o Node).
+* Node.js 20+.
 
 ### 2. Instalação
 ```bash
