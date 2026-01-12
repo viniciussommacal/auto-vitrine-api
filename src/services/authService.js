@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { id } from 'zod/locales';
 
 class AuthService {
   constructor(usuarioRepository) {
@@ -19,9 +20,17 @@ class AuthService {
       throw new Error('E-mail ou senha inválidos');
     }
 
-    return jwt.sign({ id: usuario.id }, process.env.JWT_SECRET, {
-      expiresIn: '1d',
-    });
+    return jwt.sign(
+      {
+        id: usuario.id,
+        admin: usuario.admin,
+        email: usuario.email,
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: '1d',
+      },
+    );
   }
 }
 

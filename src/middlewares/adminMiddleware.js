@@ -1,11 +1,11 @@
 import { StatusCodes } from 'http-status-codes';
 
 export default function adminMiddleware(req, res, next) {
-  if (req.user && req.user.role === 'admin') {
+  if (req.user && req.user.admin) {
     return next();
   }
 
   return res.status(StatusCodes.FORBIDDEN).json({
-    message: 'Acesso negado: Requer privilégios de administrador'
+    message: 'Acesso negado: Requer privilégios de administrador',
   });
 }

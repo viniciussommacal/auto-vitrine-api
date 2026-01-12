@@ -10,35 +10,29 @@ module.exports = {
         autoIncrement: true,
         allowNull: false,
       },
-
       nome: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-
       email: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
       },
-
       admin: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false,
       },
-
       password: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-
-      createdAt: {
+      created_at: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-
-      updatedAt: {
+      updated_at: {
         type: Sequelize.DATE,
         allowNull: false,
       },

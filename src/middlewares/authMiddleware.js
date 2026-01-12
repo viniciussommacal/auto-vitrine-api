@@ -5,7 +5,9 @@ export default function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;
 
   if (!authHeader) {
-    return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Token não informado' });
+    return res
+      .status(StatusCodes.UNAUTHORIZED)
+      .json({ message: 'Token não informado' });
   }
 
   const [_, token] = authHeader.split(' ');
@@ -15,6 +17,8 @@ export default function authMiddleware(req, res, next) {
     req.user = decoded;
     return next();
   } catch {
-    return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Token inválido ou expirado' });
+    return res
+      .status(StatusCodes.UNAUTHORIZED)
+      .json({ message: 'Token inválido ou expirado' });
   }
 }
