@@ -38,9 +38,10 @@ Usuario.init(
     tableName: 'usuarios',
     timestamps: true,
     underscored: true,
+    paranoid: true,
     defaultScope: {
       attributes: {
-        exclude: ['password'],
+        exclude: ['password', 'deletedAt'],
       },
     },
   },

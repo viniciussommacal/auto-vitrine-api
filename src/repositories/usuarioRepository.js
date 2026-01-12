@@ -5,9 +5,13 @@ class UsuarioRepository {
 
   async findByEmail(email) {
     return this.usuarioModel.findOne({
-      where: {
-        email,
-      },
+      where: { email },
+    });
+  }
+
+  async findByEmailWithPassword(email) {
+    return await this.usuarioModel.scope(null).findOne({
+      where: { email },
     });
   }
 
@@ -23,20 +27,27 @@ class UsuarioRepository {
     return this.usuarioModel.create(data);
   }
 
+  async update(id, data) {
+    const usuario = await this.usuarioModel.findByPk(id);
+
+    if (!usuario) {
+      return null;
+    }
+
+    return await usuario.update(data);
+  }
+
   async delete(id) {
-    return this.usuarioModel.destroy({
-      where: {
-        id,
-      },
-    });
+    const usuario = await this.usuarioModel.findByPk(id);
+    if (!usuario) {
+      return null;
+    }
+
+    return await usuario.destroy();
   }
 
   async findAll() {
-    return this.usuarioModel.findAll({
-      attributes: {
-        exclude: ['password'],
-      },
-    });
+    return this.usuarioModel.findAll();
   }
 }
 

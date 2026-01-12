@@ -8,7 +8,7 @@ class AuthService {
   }
 
   async login({ email, password }) {
-    const usuario = await this.usuarioRepository.findByEmail(email);
+    const usuario = await this.usuarioRepository.findByEmailWithPassword(email);
 
     if (!usuario) {
       throw new Error('E-mail ou senha inválidos');
